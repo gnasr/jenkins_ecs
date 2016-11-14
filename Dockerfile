@@ -1,0 +1,8 @@
+FROM jenkinsci/jenkins:latest
+RUN /usr/local/bin/install-plugins.sh workflow-aggregator job-dsl git build-flow-plugin docker-build-publish amazon-ecr amazon-ecs docker-workflow 
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+
+RUN apt-get -y update && apt-get install -y sudo jq curl
+COPY ecs-deploy /usr/local/bin/ecs-deploy
+RUN chmod a+x /usr/local/bin/ecs-deploy
+ENTRYPOINT ["/usr/local/bin/ecs-deploy"]
