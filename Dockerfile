@@ -3,7 +3,7 @@ RUN /usr/local/bin/install-plugins.sh workflow-aggregator job-dsl git build-flow
 ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
 USER root
-RUN apt-get -y update && apt-get install -y sudo jq curl
+RUN apt-get -y update && apt-get install -y sudo jq curl awscli
 COPY ecs-deploy /usr/local/bin/ecs-deploy
 RUN chmod a+x /usr/local/bin/ecs-deploy
 ENTRYPOINT ["/usr/local/bin/ecs-deploy"]
