@@ -1,5 +1,5 @@
 FROM jenkinsci/jenkins:latest
-RUN /usr/local/bin/install-plugins.sh workflow-aggregator job-dsl git build-flow-plugin docker-build-publish amazon-ecr amazon-ecs docker-workflow bitbucket 
+RUN /usr/local/bin/install-plugins.sh workflow-aggregator job-dsl git build-flow-plugin docker-build-publish amazon-ecr amazon-ecs docker-workflow s3 bitbucket 
 #ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
 
 USER root
