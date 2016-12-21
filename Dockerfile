@@ -6,5 +6,3 @@ USER root
 RUN apt-get -y update && apt-get install -y sudo jq curl python-setuptools && easy_install pip && pip install awscli
 COPY ecs-deploy /usr/local/bin/ecs-deploy
 RUN chmod a+x /usr/local/bin/ecs-deploy
-
-USER jenkins
